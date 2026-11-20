@@ -1,0 +1,260 @@
+/* ===== Serena Hotel Kampala — booking.css ===== */
+
+:root {
+  --burgundy: #800020;
+  --gold: #C9A84C;
+  --ivory: #FFFFF0;
+  --text: #2b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--ivory);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ----- Navbar ----- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 32px;
+  background-color: var(--burgundy);
+  border-bottom: 3px solid var(--gold);
+}
+
+.logo {
+  height: 50px;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+/* ----- Hero ----- */
+.hero {
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--burgundy); /* fallback if image missing */
+  background-image: url("hero-serena.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.hero-overlay h1 {
+  max-width: 800px;
+  font-size: 2.8rem;
+  line-height: 1.2;
+}
+
+.btn-book {
+  display: inline-block;
+  padding: 14px 40px;
+  background-color: var(--gold);
+  color: var(--burgundy);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-book:hover {
+  background-color: var(--burgundy);
+  color: var(--gold);
+}
+
+/* ----- Sections ----- */
+.section {
+  padding: 64px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  scroll-margin-top: 80px; /* offset for sticky navbar */
+}
+
+.section-alt {
+  max-width: none;
+  background-color: #f6f1dc;
+}
+
+.section-alt > * {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--burgundy);
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 12px auto 0;
+  background-color: var(--gold);
+}
+
+/* ----- Room cards (Flexbox, 2 per row) ----- */
+.room-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.room-card {
+  flex: 0 0 calc(50% - 12px);
+  padding: 28px;
+  background-color: #fff;
+  border-top: 4px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.room-card h3 {
+  color: var(--burgundy);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.room-card .price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.room-card .price span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #777;
+}
+
+/* ----- Comparison table ----- */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 14px 16px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.compare-table thead th {
+  background-color: #800020;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.compare-table tbody td:first-child {
+  text-align: left;
+  font-weight: bold;
+  color: var(--burgundy);
+}
+
+.compare-table tbody tr:nth-child(even) {
+  background-color: #faf6e6;
+}
+
+.compare-table .yes {
+  color: green;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.compare-table .no {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ----- Booking placeholder ----- */
+.placeholder {
+  text-align: center;
+  color: #777;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .room-card {
+    flex: 0 0 100%;
+  }
+
+  .section {
+    padding: 48px 16px;
+  }
+}
